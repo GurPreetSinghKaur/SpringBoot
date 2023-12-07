@@ -10,14 +10,14 @@ public class Student {
     private LocalDate dob;
     private String email;
     Student(){}
-    Student(String name, Long id, Integer age, LocalDate dob, String email){
+   public Student(Long id, String name, Integer age, LocalDate dob, String email){
         this.name = name;
         this.age = age;
         this.dob = dob;
         this.email = email;
         this.id = id;
     }
-    Student(String name, Integer age, LocalDate dob, String email){
+   public Student(String name, Integer age, LocalDate dob, String email){
         this.name = name;
         this.age = age;
         this.dob = dob;

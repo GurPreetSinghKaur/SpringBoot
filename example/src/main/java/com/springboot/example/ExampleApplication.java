@@ -1,5 +1,9 @@
 package com.springboot.example;
+import java.time.LocalDate;
+import java.time.Month;
 import java.util.List;
+
+import com.springboot.example.Student.Student;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,9 +17,9 @@ public class ExampleApplication {
 
 	}
 	@GetMapping
-	public List<String> hello()
+	public List<Student> hello()
 	{
-		return List.of("Hello", "World");
+		return List.of(new Student(1L, "Robert", 21, LocalDate.of(2000, Month.FEBRUARY, 23), "Robert@hotmail.es"));
 	}
 
 }
