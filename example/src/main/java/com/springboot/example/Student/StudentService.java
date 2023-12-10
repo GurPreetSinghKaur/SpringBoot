@@ -17,4 +17,8 @@ public class StudentService {
         return studentRepository.findAll();
         //List.of(new Student(1L, "Robert", 21, LocalDate.of(2000, Month.FEBRUARY, 23), "Robert@hotmail.es"));
     }
+
+    public void addNewStudent (Student student) {
+        System.out.println(student);
+    }
 }
