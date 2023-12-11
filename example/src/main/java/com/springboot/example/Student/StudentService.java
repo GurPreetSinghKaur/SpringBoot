@@ -1,5 +1,6 @@
 package com.springboot.example.Student;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
@@ -22,10 +23,10 @@ public class StudentService {
 
     public void addNewStudent (Student student) {
 
-        Optional<Student> studentOptional = StudentRepository.findStudentByEmail(student.getEmail());
+        Optional<Student> studentOptional = studentRepository.findStudentByEmail(student.getEmail());
 
-        if (studentOptional.isPresent()) {
-            throw new Exception IllegalStateException("Email is already taken");
+        if ( studentOptional.isPresent()) {
+            throw new IllegalStateException ("Email is already taken");
         }
 
         studentRepository.save(student);
