@@ -12,3 +12,6 @@ Content-Type: application/json
 "email": "James@hotmail.co.uk"
 }
 
+### Delete by ID
+DELETE http://localhost:8080/api/v1/student/1
+
