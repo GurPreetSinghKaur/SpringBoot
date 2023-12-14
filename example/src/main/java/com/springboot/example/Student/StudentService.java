@@ -43,22 +43,25 @@ public class StudentService {
     }
     }
 @Transactional
-    public void updateStudent (Student student) {
-        int studentHashCode = student.hashCode();
+    public void updateStudent (Long studentId,String name,String email) {
 
-        Optional<Student> studentFromDatabase = studentRepository.findStudentByEmail(student.getEmail());
-        if (studentFromDatabase.isPresent()) {
-            Student student2 = studentFromDatabase.get();
-            int dbStudentHashCode = student2.hashCode();
+Student student = studentRepository.findById(studentId).orElseThrow(() -> new IllegalStateException("Student with id "+studentId+" does not exist"));
 
-            if (studentHashCode != dbStudentHashCode) {
-                student2.setName(student.getName());
-            } else {
-                throw new IllegalStateException("Changes not applied");
-            }
-        } else {
-            throw new IllegalStateException("Student not found");
+    if (name != null && name.length() > 0 && !student.getId().equals(name)) {
+        student.setName(name);
+    }
+
+    if (email != null && email.length() > 0 && !student.getEmail().equals(email)) {
+
+        Optional <Student> studentOptional = studentRepository.findStudentByEmail(email);
+
+        if (studentOptional.isPresent()) {
+            throw new IllegalStateException("Email already exists");
         }
+    }
+
+    student.setEmail(email);
+
 
     }
 
