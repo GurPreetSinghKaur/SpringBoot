@@ -13,5 +13,14 @@ Content-Type: application/json
 }
 
 ### Delete by ID
-DELETE http://localhost:8080/api/v1/student/1
+DELETE http://localhost:8080/api/v1/student/2
 
+
+### PUT
+PUT http://localhost:8080/api/v1/student
+Content-Type: application/json
+
+{
+  "name": "Juan UPDATED",
+  "email": "Jan@outlook.co.uk"
+}

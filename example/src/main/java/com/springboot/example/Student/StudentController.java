@@ -27,4 +27,11 @@ public class StudentController {
     }
     @DeleteMapping(path = "{studentId}")
     public void deleteStudent (@PathVariable("studentId") Long studentId) {studentService.deleteStudent(studentId); }
+
+    @PutMapping
+    public void updateStudent (@RequestBody Student student){
+        System.out.println(student);
+        studentService.updateStudent(student);
+    }
+
 }

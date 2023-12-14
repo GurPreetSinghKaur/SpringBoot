@@ -1,4 +1,5 @@
 package com.springboot.example.Student;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
@@ -40,6 +41,25 @@ public class StudentService {
     } else {
         studentRepository.deleteById(studentId);
     }
+    }
+@Transactional
+    public void updateStudent (Student student) {
+        int studentHashCode = student.hashCode();
+
+        Optional<Student> studentFromDatabase = studentRepository.findStudentByEmail(student.getEmail());
+        if (studentFromDatabase.isPresent()) {
+            Student student2 = studentFromDatabase.get();
+            int dbStudentHashCode = student2.hashCode();
+
+            if (studentHashCode != dbStudentHashCode) {
+                student2.setName(student.getName());
+            } else {
+                throw new IllegalStateException("Changes not applied");
+            }
+        } else {
+            throw new IllegalStateException("Student not found");
+        }
+
     }
 
 
