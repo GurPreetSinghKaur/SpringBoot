@@ -5,12 +5,5 @@
     "age": 23,
     "dob": "2000-02-23",
     "email": "Robert@hotmail.es"
-  },
-  {
-    "id": 2,
-    "name": "Juan",
-    "age": 43,
-    "dob": "1980-04-03",
-    "email": "Juan@outlook.co.uk"
   }
 ]

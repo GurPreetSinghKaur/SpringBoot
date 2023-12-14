@@ -1,7 +1,0 @@
-{
-  "timestamp": "2023-12-11T18:52:34.917+00:00",
-  "status": 500,
-  "error": "Internal Server Error",
-  "message": "The given id must not be null",
-  "path": "/api/v1/student"
-}

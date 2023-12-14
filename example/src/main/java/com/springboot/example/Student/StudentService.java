@@ -43,7 +43,7 @@ public class StudentService {
     }
     }
 @Transactional
-    public void updateStudent (Long studentId,String name,String email) {
+    public void updateStudent (Long studentId,String name, String email) {
 
 Student student = studentRepository.findById(studentId).orElseThrow(() -> new IllegalStateException("Student with id "+studentId+" does not exist"));
 
@@ -58,9 +58,10 @@ Student student = studentRepository.findById(studentId).orElseThrow(() -> new Il
         if (studentOptional.isPresent()) {
             throw new IllegalStateException("Email already exists");
         }
+        student.setEmail(email);
     }
 
-    student.setEmail(email);
+
 
 
     }
